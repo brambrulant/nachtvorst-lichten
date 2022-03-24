@@ -22,6 +22,10 @@ export const HomePage: React.FC = () => {
     if (step > 0) setStep((prevState) => prevState - 1)
   }, [])
 
+  const handleFinish = React.useCallback(() => {
+    console.log('finish')
+  }, [])
+
   React.useEffect(() => {
     switch (step) {
       case 1:
@@ -42,18 +46,15 @@ export const HomePage: React.FC = () => {
     }
   }, [step])
 
-  console.log(step)
-
   return (
     <Card className={classes.root}>
       {content}
       <div className={classes.buttonGroup}>
         <StyledButton
           className={classes.button}
-          onClick={handleNext}
-          disabled={step === 3}
+          onClick={step === 3 ? handleNext : handleFinish}
         >
-          Next
+          {step === 3 ? 'finish' : 'next'}
         </StyledButton>
         <StyledButton
           className={classes.backButton}
