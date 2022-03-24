@@ -17,34 +17,31 @@ export interface SelectInputDeviceProps {
 export const SelectInputDevice: React.FC<SelectInputDeviceProps> = ({
   inputs,
   onChange,
-}) => {
-  console.log('hoi')
-
-  return (
-    <div>
-      <Typography variant="h5">Select your MIDI input device</Typography>
-      <FormControl>
-        <RadioGroup
-          aria-labelledby="demo-controlled-radio-buttons-group"
-          name="controlled-radio-buttons-group"
-          onChange={onChange}
-        >
-          {inputs.map((input) => (
-            <FormControlLabel
-              value={input.name}
-              control={<Radio />}
-              label={input.name}
-            />
-          ))}
+}) => (
+  <div>
+    <Typography variant="h5">Select your MIDI input device</Typography>
+    <FormControl>
+      <RadioGroup
+        aria-labelledby="demo-controlled-radio-buttons-group"
+        name="controlled-radio-buttons-group"
+        onChange={onChange}
+      >
+        {inputs.map((input) => (
           <FormControlLabel
-            value="midi hardcoded"
+            key={input.name}
+            value={input.name}
             control={<Radio />}
-            label="midi hardcoded"
+            label={input.name}
           />
-        </RadioGroup>
-      </FormControl>
-    </div>
-  )
-}
+        ))}
+        <FormControlLabel
+          value="midi hardcoded"
+          control={<Radio />}
+          label="midi hardcoded"
+        />
+      </RadioGroup>
+    </FormControl>
+  </div>
+)
 
 export default SelectInputDevice

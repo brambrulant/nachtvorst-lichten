@@ -9,7 +9,7 @@ export interface MidiProps {
 }
 
 export const Midi: React.FC<MidiProps> = ({ className }) => {
-  const { setCurrentMidi, currentMidi } = useStore()
+  const { setCurrentMidi } = useStore()
 
   const [inputs, setInputs] = React.useState<Input[]>([])
 
@@ -21,11 +21,9 @@ export const Midi: React.FC<MidiProps> = ({ className }) => {
     }
   }
 
-  React.useEffect(() => {
-    WebMidi.enable()
-      .then(onEnabled)
-      .catch((err) => alert(err))
-  }, [])
+  WebMidi.enable()
+    .then(onEnabled)
+    .catch((err) => alert(err))
 
   const handleChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {

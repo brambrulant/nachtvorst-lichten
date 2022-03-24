@@ -29,6 +29,7 @@ export const SelectInputDevice: React.FC<SelectInputDeviceProps> = ({
         >
           {outputs.map((output: Dmx) => (
             <FormControlLabel
+              key={output?.name}
               value={output?.name}
               control={<Radio />}
               label={output?.name}
