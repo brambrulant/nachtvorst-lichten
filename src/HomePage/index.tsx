@@ -52,7 +52,7 @@ export const HomePage: React.FC = () => {
       <div className={classes.buttonGroup}>
         <StyledButton
           className={classes.button}
-          onClick={step === 3 ? handleNext : handleFinish}
+          onClick={step === 3 ? handleFinish : handleNext}
         >
           {step === 3 ? 'finish' : 'next'}
         </StyledButton>
