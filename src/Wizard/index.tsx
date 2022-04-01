@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { observer } from 'mobx-react'
 import { Input } from 'webmidi'
 import Card from '@mui/material/Card'
@@ -8,7 +9,6 @@ import SelectInputDevice from '../Midi/SelectInputDevice'
 
 import useStyles from './useStyles'
 import StepperComponent from '../Components/StepperComponent'
-import StyledButton from '../Components/Button'
 import SelectOutputDevice from '../Dmx/SelectOutputDevice'
 
 // adjust this to add more steps!
@@ -24,9 +24,11 @@ export interface WizardProps {
 
 export const Wizard: React.FC<WizardProps> = ({ inputs }) => {
   const classes = useStyles()
+  const navigate = useNavigate()
 
-  const handleFinish = React.useCallback(() => {
-    console.log('finiiiished')
+  const handleFinish = React.useCallback((e) => {
+    e.preventDefault()
+    navigate('/app')
   }, [])
 
   const getContent = (activeStep: number) => {

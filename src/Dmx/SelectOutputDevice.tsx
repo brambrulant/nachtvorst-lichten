@@ -16,29 +16,26 @@ export interface SelectOutputDeviceProps {
 export const SelectOutputDevice: React.FC<SelectOutputDeviceProps> = ({
   outputs,
   onChange,
-}) => {
-  console.log('hoooi')
-  return (
-    <div>
-      <Typography variant="h1">Select your DMX output device</Typography>
-      <FormControl>
-        <RadioGroup
-          aria-labelledby="demo-radio-buttons-group-label"
-          name="radio-buttons-group"
-          onChange={onChange}
-        >
-          {outputs.map((output: Dmx) => (
-            <FormControlLabel
-              key={output?.name}
-              value={output?.name}
-              control={<StyledRadio />}
-              label={output?.name}
-            />
-          ))}
-        </RadioGroup>
-      </FormControl>
-    </div>
-  )
-}
+}) => (
+  <div>
+    <Typography variant="h1">Select your DMX output device</Typography>
+    <FormControl>
+      <RadioGroup
+        aria-labelledby="demo-radio-buttons-group-label"
+        name="radio-buttons-group"
+        onChange={onChange}
+      >
+        {outputs.map((output: Dmx) => (
+          <FormControlLabel
+            key={output?.name}
+            value={output?.name}
+            control={<StyledRadio />}
+            label={output?.name}
+          />
+        ))}
+      </RadioGroup>
+    </FormControl>
+  </div>
+)
 
 export default SelectOutputDevice

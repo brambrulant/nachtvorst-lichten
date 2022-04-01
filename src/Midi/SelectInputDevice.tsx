@@ -9,6 +9,7 @@ import {
 } from '@mui/material'
 import StyledRadio from '../Components/Radio'
 import useStyles from './useStyles'
+import { useStore } from '../stores'
 
 export interface selectInputDeviceProps {
   inputs: Input[]
@@ -18,18 +19,15 @@ export const SelectInputDevice: React.FC<selectInputDeviceProps> = ({
   inputs,
 }) => {
   const classes = useStyles()
-  const [selectedInput, setSelectedInput] = React.useState<Input | undefined>()
-  const [content, setContent] = React.useState<any>()
+  const { setCurrentMidi } = useStore()
 
   const handleChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const midiInput = inputs?.find((input) => input.name === e.target.value)
-      if (midiInput !== undefined) setSelectedInput(midiInput)
+      if (midiInput !== undefined) setCurrentMidi(midiInput)
     },
     [],
   )
-
-  console.log(inputs)
 
   return (
     <div className={classes.root}>

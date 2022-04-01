@@ -9,7 +9,7 @@ import useStyles from './useStyles'
 export interface StepperComponentProps {
   steps: string[]
   getContent: (activeStep: number) => React.ReactNode
-  onFinish: () => void
+  onFinish: (e: React.MouseEvent) => void
 }
 
 export const StepperComponent: React.FC<StepperComponentProps> = ({
