@@ -15,9 +15,17 @@ const styles = ({
       minHeight: `${spacing(50)} !important`,
       width: `${spacing(80)} !important`,
       display: 'flex',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    lights: {
+      display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
+      margin: spacing(2),
     },
     radioChecked: {
       background: `${palette.nachtvorst.grayscale.darker} !important`,
