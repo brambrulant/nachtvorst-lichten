@@ -1,16 +1,12 @@
 import { PaletteOptions } from '@mui/material'
 
-interface ColorGroup {
-  lighter: string
-  base: string
-  darker: string
-}
-
 interface NachtvorstColors {
   primary: {
-    red: ColorGroup
-    green: ColorGroup
-    blue: ColorGroup
+    red: string
+    green: string
+    blue: string
+    amber: string
+    pink: string
   }
   grayscale: {
     purgatory: string
@@ -35,50 +31,40 @@ declare module '@mui/material/styles/createPalette' {
 
 const nachtvorst: NachtvorstColors = {
   primary: {
-    red: {
-      lighter: '#f18e8e',
-      base: '#F38181',
-      darker: '#f55353',
-    },
-    green: {
-      lighter: '#EAFFD0',
-      base: '#bdf59a',
-      darker: '#a5d73f',
-    },
-    blue: {
-      lighter: '#b2e3d5',
-      base: '#95E1D3',
-      darker: '#3bd3ac',
-    },
+    red: '#C62828',
+    green: '#00897B',
+    blue: '#404F9F',
+    amber: '#FF8F00',
+    pink: '#F390B0',
   },
   grayscale: {
-    purgatory: '#F5F5F5',
-    lighter: '#E0E0E0',
-    base: '#CCCCCC',
-    darker: '#B8B8B8',
-    theBeast: '#666666',
-    black: '#262626',
+    purgatory: '#F7F7F7',
+    lighter: '#E1E1E1',
+    base: '#7E7E7E',
+    darker: '#515151',
+    theBeast: '#3B3B3B',
+    black: '#222222',
   },
-  background: '#F4F7FC',
+  background: '#121212',
 }
 
 const colors: PaletteOptions = {
   primary: {
-    light: nachtvorst.primary.green.lighter,
-    main: nachtvorst.primary.green.base,
-    dark: nachtvorst.primary.green.darker,
+    light: nachtvorst.primary.green,
+    main: nachtvorst.primary.green,
+    dark: nachtvorst.primary.green,
   },
 
   secondary: {
-    light: nachtvorst.primary.green.lighter,
-    main: nachtvorst.primary.green.base,
-    dark: nachtvorst.primary.green.darker,
+    light: nachtvorst.primary.green,
+    main: nachtvorst.primary.green,
+    dark: nachtvorst.primary.green,
   },
 
   success: {
-    light: nachtvorst.primary.green.lighter,
-    main: nachtvorst.primary.green.base,
-    dark: nachtvorst.primary.green.darker,
+    light: nachtvorst.primary.green,
+    main: nachtvorst.primary.green,
+    dark: nachtvorst.primary.green,
   },
 
   background: {

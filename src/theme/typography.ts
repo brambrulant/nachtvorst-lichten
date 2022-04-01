@@ -1,7 +1,7 @@
 import { TypographyOptions } from '@mui/material/styles/createTypography'
 import colors from './colors'
 
-interface ClanProFonts {
+interface SourceSansFonts {
   bold: string
   news: string
   book: string
@@ -9,37 +9,36 @@ interface ClanProFonts {
 
 declare module '@mui/material/styles/createTypography' {
   interface Typography {
-    clanPro: ClanProFonts
+    sourceSans: SourceSansFonts
   }
 
   interface TypographyOptions {
-    clanPro?: ClanProFonts
+    sourceSans?: SourceSansFonts
   }
 }
 
-const clanPro: ClanProFonts = {
-  bold: 'ClanPro-Bold, serif',
-  news: 'ClanPro-News, serif',
-  book: 'ClanPro-News, serif',
+const sourceSans: SourceSansFonts = {
+  bold: 'Source Sans Pro, sans-serif',
+  news: 'Source Sans Pro, sans-serif',
+  book: 'Source Sans Pro, sans-serif',
 }
 
 const typography: TypographyOptions = {
-  fontSize: 12,
-  fontFamily: clanPro.news,
-  clanPro,
+  fontSize: 14,
+  fontFamily: sourceSans.news,
+  sourceSans,
 
   // Header Big
   h1: {
-    fontFamily: clanPro.bold,
-    fontSize: 20,
+    fontFamily: sourceSans.bold,
+    fontSize: 24,
   },
 
-  // Header Regular
   h2: {
-    fontFamily: clanPro.bold,
-    fontSize: 14,
+    fontFamily: sourceSans.bold,
+    fontSize: 20,
     textTransform: 'uppercase',
-    color: colors.nachtvorst?.grayscale.black,
+    color: colors.nachtvorst?.grayscale.purgatory,
   },
 
   // Text Regular
@@ -47,21 +46,21 @@ const typography: TypographyOptions = {
   // Link Text
   // Phone Number
   body1: {
-    fontFamily: clanPro.news,
-    fontSize: 12,
-    color: 'inherit',
+    fontFamily: sourceSans.news,
+    fontSize: 14,
+    color: colors.nachtvorst?.grayscale.purgatory,
   },
 
   // Text Regular - Bold
   // Input Label
   body2: {
-    fontFamily: clanPro.bold,
-    fontSize: 12,
+    fontFamily: sourceSans.bold,
+    fontSize: 14,
   },
 
   // Table Header
   overline: {
-    fontFamily: clanPro.bold,
+    fontFamily: sourceSans.bold,
     fontSize: 10,
     textTransform: 'none',
   },
@@ -69,7 +68,7 @@ const typography: TypographyOptions = {
   // Badge Text
   // Package Label Text
   caption: {
-    fontFamily: clanPro.news,
+    fontFamily: sourceSans.news,
     fontSize: 10,
   },
 

@@ -18,15 +18,20 @@
   },
   "plugins": [
     "react",
-    "@typescript-eslint"
+    "@typescript-eslint/eslint-plugin",
+     "import"
   ],
   "rules": {
     "semi": 0,
+    "allowSyntheticDefaultImports": "off",
+    "esModuleInterop": "off",
     "no-shadow": 0,
     "import/no-named-as-default": 0,
     "no-alert": 0,
+    "react/jsx-wrap-multilines": "off",
     "no-trailing-spaces": 0,
     "no-unused-vars": "off",
+    "implicit-arrow-linebreak": "off",
     "no-explicit-any": 0,
     "react/function-component-definition": 0,
     "react/jsx-props-no-spreading": 0,

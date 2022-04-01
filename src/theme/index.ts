@@ -10,6 +10,13 @@ const theme: ThemeOptions = {
   palette,
   typography,
   shadows,
+  components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+  },
 }
 
 export default createTheme(theme)

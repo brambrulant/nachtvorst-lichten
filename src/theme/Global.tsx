@@ -3,6 +3,7 @@ import { withStyles } from '@mui/styles'
 const Global = withStyles((theme) => ({
   '@global': {
     // Define any global styles/classes here
+    fontFamily: theme.typography.sourceSans.news,
     body: {
       overflowY: 'auto',
     },
@@ -17,7 +18,7 @@ const Global = withStyles((theme) => ({
 
     '::-webkit-scrollbar-track': {
       borderRadius: theme.shape.radius8,
-      background: theme.palette.nachtvorst.grayscale.purgatory,
+      background: theme.palette,
     },
 
     '::-webkit-scrollbar-thumb': {
@@ -32,13 +33,6 @@ const Global = withStyles((theme) => ({
     '::placeholder': {
       color: theme.palette.nachtvorst.grayscale.base,
     },
-
-    // [theme.breakpoints.down('sm')]: {
-    //   'input, select, textarea': {
-    //     lineHeight: '32px !important',
-    //     fontSize: '16px !important',
-    //   },
-    // },
   },
 }))(() => null)
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { useLocalStore } from 'mobx-react' // 6.x or mobx-react-lite@1.4.0
 import { TStore, userStore } from './UserStore'
 

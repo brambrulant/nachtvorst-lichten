@@ -2,25 +2,25 @@ import React from 'react'
 import {
   FormControl,
   FormControlLabel,
-  Radio,
   RadioGroup,
   Typography,
 } from '@mui/material'
 import { Dmx } from '../stores/models/Dmx'
+import StyledRadio from '../Components/Radio'
 
-export interface SelectInputDeviceProps {
+export interface SelectOutputDeviceProps {
   outputs: any[]
   onChange: (event: React.ChangeEvent) => void
 }
 
-export const SelectInputDevice: React.FC<SelectInputDeviceProps> = ({
+export const SelectOutputDevice: React.FC<SelectOutputDeviceProps> = ({
   outputs,
   onChange,
 }) => {
   console.log('hoooi')
   return (
     <div>
-      <Typography variant="h5">Select your DMX output device</Typography>
+      <Typography variant="h1">Select your DMX output device</Typography>
       <FormControl>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
@@ -31,7 +31,7 @@ export const SelectInputDevice: React.FC<SelectInputDeviceProps> = ({
             <FormControlLabel
               key={output?.name}
               value={output?.name}
-              control={<Radio />}
+              control={<StyledRadio />}
               label={output?.name}
             />
           ))}
@@ -41,4 +41,4 @@ export const SelectInputDevice: React.FC<SelectInputDeviceProps> = ({
   )
 }
 
-export default SelectInputDevice
+export default SelectOutputDevice

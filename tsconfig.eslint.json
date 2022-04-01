@@ -1,9 +1,10 @@
 {
   "extends": "./tsconfig.json",
+  "allowSyntheticDefaultImports": true,
   "include": [
     ".eslintrc.js",
     ".prettierrc.js",
-    "./src/**/*"
+    "./src"
   ],
   "exclude": [
     "node_modules"

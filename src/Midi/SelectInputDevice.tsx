@@ -1,47 +1,57 @@
-import React from 'react'
-
+import * as React from 'react'
+import { Input, WebMidi } from 'webmidi'
+import { observer } from 'mobx-react'
 import {
   FormControl,
   FormControlLabel,
-  Radio,
   RadioGroup,
   Typography,
 } from '@mui/material'
-import { Input } from 'webmidi'
+import StyledRadio from '../Components/Radio'
+import useStyles from './useStyles'
 
-export interface SelectInputDeviceProps {
+export interface selectInputDeviceProps {
   inputs: Input[]
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export const SelectInputDevice: React.FC<SelectInputDeviceProps> = ({
+export const SelectInputDevice: React.FC<selectInputDeviceProps> = ({
   inputs,
-  onChange,
-}) => (
-  <div>
-    <Typography variant="h5">Select your MIDI input device</Typography>
-    <FormControl>
-      <RadioGroup
-        aria-labelledby="demo-controlled-radio-buttons-group"
-        name="controlled-radio-buttons-group"
-        onChange={onChange}
-      >
-        {inputs.map((input) => (
-          <FormControlLabel
-            key={input.name}
-            value={input.name}
-            control={<Radio />}
-            label={input.name}
-          />
-        ))}
-        <FormControlLabel
-          value="midi hardcoded"
-          control={<Radio />}
-          label="midi hardcoded"
-        />
-      </RadioGroup>
-    </FormControl>
-  </div>
-)
+}) => {
+  const classes = useStyles()
+  const [selectedInput, setSelectedInput] = React.useState<Input | undefined>()
+  const [content, setContent] = React.useState<any>()
 
-export default SelectInputDevice
+  const handleChange = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const midiInput = inputs?.find((input) => input.name === e.target.value)
+      if (midiInput !== undefined) setSelectedInput(midiInput)
+    },
+    [],
+  )
+
+  console.log(inputs)
+
+  return (
+    <div className={classes.root}>
+      <Typography variant="h2">Select your MIDI input device</Typography>
+      <FormControl>
+        <RadioGroup
+          aria-labelledby="demo-controlled-radio-buttons-group"
+          name="controlled-radio-buttons-group"
+          onChange={handleChange}
+        >
+          {inputs.map((input) => (
+            <FormControlLabel
+              key={input.name}
+              value={input.name}
+              control={<StyledRadio />}
+              label={input.name}
+            />
+          ))}
+        </RadioGroup>
+      </FormControl>
+    </div>
+  )
+}
+
+export default observer(SelectInputDevice)
